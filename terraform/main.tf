@@ -83,17 +83,11 @@ resource "aws_instance" "app_server" {
   }
 }
 
+
 output "public_ip" {
   value = aws_instance.app_server.public_ip
 }
 
 output "private_ip" {
   value = aws_instance.app_server.private_ip
-}
-
-output "ssh" {
-  value = "ssh -l ubuntu ${aws_eip.eip.public_ip}"
-}
-output "url" {
-  value = "http://${aws_eip.eip.public_ip}/"
 }
